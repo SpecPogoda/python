@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS weather (id INT AUTO_INCREMENT PRIMARY KEY, data VARCHAR(255), inHumidity INT, inTemperature FLOAT, outHumidity INT, outTemperature FLOAT, pressure FLOAT, windSpeed FLOAT, gust FLOAT, windDirection INT, idk FLOAT, rainFall FLOAT)
