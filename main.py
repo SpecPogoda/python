@@ -10,14 +10,24 @@ def init():
     else:
         shutil.rmtree("weather")
         os.mkdir("weather")
+    
+    try:
+        subprocess.run('python3 -mpywws.logdata -vvv weather', shell=True, check=True, text=True)
+    except:
+        print("")
 
-    subprocess.run('python3 -mpywws.logdata -vvv weather', shell=True, check=True, text=True)
+    a = """[paths]
+    work = /tmp/pywws
+    datastoretype = filedata
 
-    parser = configparser.ConfigParser()
-    parser.read("weather/weather.ini")
-    parser.set("wstype", "1080")
-    with open('weather/weather.ini'.format("1080"), 'w') as configfile:
-        parser.write(configfile)
+    [config]
+    usb activity margin = 3.0
+    ws type = 1080
+    pressure offset = 21
+    logdata sync = 1"""
+
+    p = open("weather/weather.ini", "w")
+    p.write(a)
 
     subprocess.run('python3 -mpywws.logdata -vvv weather', shell=True, check=True, text=True)
 
@@ -48,7 +58,7 @@ def sendData(dane, lb):
         passwd="pythondb_pass",
         database="pythondb"
     )
-
+skri
     cursor = mydb.cursor()
     l = 0
     for i in dane:
