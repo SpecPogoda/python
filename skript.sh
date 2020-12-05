@@ -3,6 +3,6 @@ if [ -d "weather/" ]; then
 fi
 mkdir weather
 python3 -m pywws.logdata -vvv weather
-python3 -m editcfg.py
+python3 editcfg.py
 python3 -m pywws.logdata -vvv weather
-python3 -m main.py
+python3 main.py
